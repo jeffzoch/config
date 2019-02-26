@@ -1,11 +1,12 @@
-#
 # Executes commands at the start of an interactive session.
 #
 # Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Jeff Zoch <jeffrey.zoch.jz@gmail.com>
 #
-POWERLEVEL9K_MODE='nerdfont-complete'
-
+export POWERLEVEL9K_MODE='nerdfont-complete'
+export TERM="xterm-256color"
+export ZSH_AUTOSUGGEST_USE_ASYNC="true"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -53,11 +54,13 @@ setopt ZLE
 setopt NO_HUP
 
 # only fools wouldn't do this ;-)
-
 export SUBLIME=subl
 export EDITOR="$SUBLIME --wait"
 export VISUAL=$EDITOR
-setopt IGNORE_EOF
+export setopt IGNORE_EOF
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:$GOPATH/bin
+export PROJECT_HOME=$HOME/Projects
 
 # If I could disable Ctrl-s completely I would!
 setopt NO_FLOW_CONTROL
@@ -97,8 +100,8 @@ bindkey -M vicmd "q" push-line
 # it's like, space AND completion.  Gnarlbot.
 bindkey -M viins ' ' magic-space
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs virtualenv rvm time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs)
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %d.%m.%y}"
 POWERLEVEL9K_ALWAYS_SHOW_USER=true
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
@@ -115,6 +118,15 @@ POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 
+alias ls='exa'
+alias grep='rg'
+alias cat='bat'
+alias find='fd'
+alias dc="docker-compose"
 
+source ~/blt/env.sh
+export PATH=/usr/local/bin/:$PATH
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_172-zulu-8.30.0.2`
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
