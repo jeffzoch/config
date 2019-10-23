@@ -4,14 +4,15 @@
 #   Jeff Zoch <jeffrey.zoch.jz@gmail.com>
 #
 export POWERLEVEL9K_MODE='nerdfont-complete'
-export TERM="xterm-256color"
-export ZSH_AUTOSUGGEST_USE_ASYNC="true"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+export POWERLEVEL9K_MODE='nerdfont-complete'
+export TERM="xterm-256color"
+export ZSH_AUTOSUGGEST_USE_ASYNC="true"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
 #z jump around
  . ~/Documents/z/z.sh
@@ -54,6 +55,7 @@ setopt ZLE
 setopt NO_HUP
 
 # only fools wouldn't do this ;-)
+export GOPATH=$(go env GOPATH)
 export SUBLIME=subl
 export EDITOR="$SUBLIME --wait"
 export VISUAL=$EDITOR
@@ -101,7 +103,7 @@ bindkey -M vicmd "q" push-line
 bindkey -M viins ' ' magic-space
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status kubecontext)
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %d.%m.%y}"
 POWERLEVEL9K_ALWAYS_SHOW_USER=true
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='black'
@@ -117,16 +119,28 @@ POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='black'
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND='deepskyblue1'
 
-alias ls='exa'
+alias ls='lsd'
 alias grep='rg'
 alias cat='bat'
 alias find='fd'
 alias dc="docker-compose"
+alias archivalcli='docker run --rm -ti ops0-artifactrepo1-0-prd.data.sfdc.net/docker-sam/j-zoch/archival-cli'
+alias ga='git add -p'
+alias kc='kubectl'
+alias click='/Users/j.zoch/tools/click/target/release/click'
 
 source ~/blt/env.sh
 export PATH=/usr/local/bin/:$PATH
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_172-zulu-8.30.0.2`
+export M2_HOME=/Users/j.zoch/blt/tools/maven/apache-maven-3.3.9
+export SAM_USERNAME=j-zoch
+export NEXUS_USERNAME=VCWpZvy4
+export NEXUS_PASSWORD=rVT2y8+jxLqV1plui4GRjfMqR73LsYsOnW4EfzE2e+yg
+source /Users/j.zoch/Downloads/google-cloud-sdk/path.zsh.inc
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
