@@ -1,12 +1,14 @@
 bat
+fd-find
+git-delta
+lsd
+procs
 cargo
 cargo-clippy
 cargo-fmt
 cargo-miri
 click
 clippy-driver
-exa
-fd
 rg
 rls
 rust-gdb
