@@ -2,7 +2,7 @@
 # Sets Prezto options.
 #
 # Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
 #
@@ -26,7 +26,6 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
-  'contrib-prompt' \
   'environment' \
   'terminal' \
   'editor' \
@@ -167,13 +166,13 @@ zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 #
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
-#  'builtin' 'bg=yellow' \
-# 'command' 'bg=yellow' \
-# 'function' 'bg=yellow'
+#  'builtin' 'bg=yellow' \
+# 'command' 'bg=yellow' \
+# 'function' 'bg=yellow'
 #
 # Set syntax pattern styles.
   zstyle ':prezto:module:syntax-highlighting' pattern \
-   'rm*-rf*' 'fg=white,bold,bg=red'
+   'rm*-rf*' 'fg=white,bold,bg=red'
 
 #
 # Terminal
