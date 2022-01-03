@@ -15,7 +15,7 @@ export ZSH_AUTOSUGGEST_USE_ASYNC="true"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
 #z jump around
- . ~/Documents/z/z.sh
+ eval "$(zoxide init zsh)"
 # Customize to your needs...
 
 # Add homebrew to the completion path
@@ -55,13 +55,11 @@ setopt ZLE
 setopt NO_HUP
 
 # only fools wouldn't do this ;-)
-export GOPATH=$(go env GOPATH)
 export SUBLIME=subl
-export EDITOR="$SUBLIME --wait"
+export EDITOR="code -w"
 export VISUAL=$EDITOR
 export setopt IGNORE_EOF
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH=$PATH:$GOPATH/bin
 export PROJECT_HOME=$HOME/Projects
 
 # If I could disable Ctrl-s completely I would!
@@ -127,20 +125,14 @@ alias grep='rg'
 alias cat='bat'
 alias find='fd'
 alias dc="docker-compose"
-alias archivalcli='docker run --rm -ti ops0-artifactrepo1-0-prd.data.sfdc.net/docker-sam/j-zoch/archival-cli'
 alias ga='git add -p'
 alias kc='kubectl'
-alias click='/Users/j.zoch/tools/click/target/release/click'
+
+alias bz='bazelisk'
+
+alias dks-gen="~/Tools/dynamic-keytool/bin/run_all.sh"
 
 source ~/blt/env.sh
 export PATH=/usr/local/bin/:$PATH
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_172-zulu-8.30.0.2`
-export M2_HOME=/Users/j.zoch/blt/tools/maven/apache-maven-3.3.9
-export SAM_USERNAME=j-zoch
-export NEXUS_USERNAME=VCWpZvy4
-export NEXUS_PASSWORD=rVT2y8+jxLqV1plui4GRjfMqR73LsYsOnW4EfzE2e+yg
-source /Users/j.zoch/Downloads/google-cloud-sdk/path.zsh.inc
-
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
+export DOCKER_REPO_CACHE=~/docker_repo_cache/
